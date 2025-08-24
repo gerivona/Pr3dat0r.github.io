@@ -1,146 +1,138 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: monospace;
-}
-
-/* Body Styling */
-body {
-    background: url("images/asta-demon.jpg") no-repeat center center fixed;
-    background-size: cover;
-    color: #ff0000;
-    line-height: 1.6;
-    backdrop-filter: brightness(0.4);
-}
-
-/* Overlay for Dark Effect */
-body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.75);
-    z-index: -1;
-}
-
-/* Navbar */
-.navbar {
-    background: rgba(0, 0, 0, 0.85);
-    border-bottom: 2px solid #ff0000;
-    padding: 15px 20px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
-    top: 0;
-    z-index: 999;
-    box-shadow: 0 0 15px #ff0000;
-}
-
-.logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff0000;
-    text-shadow: 0 0 8px #ff0000;
-}
-
-.nav-links {
-    list-style: none;
-    display: flex;
-    gap: 25px;
-}
-
-.nav-links li a {
-    color: #ff0000;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.nav-links li a:hover {
-    color: white;
-    text-shadow: 0 0 10px #ff0000;
-}
-
-/* Hero Section */
-.hero {
-    padding: 80px 20px;
-    text-align: center;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    color: #ff0000;
-    text-shadow: 0 0 15px #ff0000, 0 0 30px #000;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 15px auto;
-    color: #f2f2f2;
-}
-
-/* Buttons */
-.twitter-btn {
-    display: inline-block;
-    padding: 10px 20px;
-    margin-top: 20px;
-    background: #ff0000;
-    color: #000;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 5px;
-    box-shadow: 0 0 10px #ff0000;
-    transition: 0.3s;
-}
-
-.twitter-btn:hover {
-    background: #000;
-    color: #ff0000;
-    box-shadow: 0 0 15px #ff0000;
-}
-
-/* About & Contact Sections */
-.about, .contact {
-    padding: 50px 20px;
-    text-align: center;
-    background: rgba(0, 0, 0, 0.65);
-    border: 1px solid #ff0000;
-    border-radius: 12px;
-    max-width: 800px;
-    margin: 30px auto;
-    box-shadow: 0 0 20px #ff0000;
-}
-
-/* Footer */
-footer {
-    text-align: center;
-    padding: 15px;
-    background: rgba(0, 0, 0, 0.85);
-    color: #ff0000;
-    border-top: 2px solid #ff0000;
-    box-shadow: 0 0 10px #ff0000;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .nav-links {
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
+<!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="pr3dat0r - Cybersecurity Blog" />
+  <title>pr3dat0r | Hacker Blog</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Courier New', monospace;
     }
-
-    .hero h1 {
-        font-size: 2rem;
+    body {
+      background-color: #000;
+      color: #00ff88;
+      line-height: 1.6;
     }
-
-    .hero p {
-        font-size: 1rem;
+    header {
+      background: #0a0a0a;
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #00ff88;
     }
-}
+    header h1 {
+      color: #00ff88;
+      font-size: 1.5rem;
+    }
+    nav a {
+      color: #00ff88;
+      margin-left: 1rem;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #fff;
+    }
+    .container {
+      max-width: 800px;
+      margin: 2rem auto;
+      padding: 1rem;
+    }
+    h2 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00ff88;
+    }
+    .contact-link {
+      color: #00ff88;
+      font-weight: bold;
+      text-decoration: none;
+      border: 1px solid #00ff88;
+      padding: 0.5rem 1rem;
+      border-radius: 5px;
+      transition: all 0.3s;
+    }
+    .contact-link:hover {
+      color: #000;
+      background-color: #00ff88;
+      box-shadow: 0 0 10px #00ff88;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+      border-top: 1px solid #00ff88;
+    }
+    @media (max-width: 600px) {
+      nav a {
+        display: inline-block;
+        margin: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>pr3dat0r</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  <div class="container">
+    <h2>Welcome to pr3dat0r's Lair 🕶️</h2>
+    <p>Your daily dose of hacking experiments, writeups, and cybersecurity madness.</p>
+  </div>  <footer>
+    <p>&copy; 2025 pr3dat0r. All rights reserved.</p>
+  </footer>
+</body>
+</html><!-- ABOUT PAGE --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About | pr3dat0r</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>pr3dat0r</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  <div class="container">
+    <h2>About Me</h2>
+    <p>I’m pr3dat0r — just a guy doing crazy stuff for the cybersecurity community. I break things, fix them, and learn from the chaos. This blog is where I share experiments, tools, writeups, and research to help others in infosec while sharpening my own skills. The goal? Keep learning, keep hacking, and eventually land a job where I get paid to do what I love.</p>
+  </div>  <footer>
+    <p>&copy; 2025 pr3dat0r. All rights reserved.</p>
+  </footer>
+</body>
+</html><!-- CONTACT PAGE --><!DOCTYPE html><html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact | pr3dat0r</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>pr3dat0r</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>  <div class="container">
+    <h2>Contact</h2>
+    <p>Want to connect or collaborate? Find me on Twitter:</p>
+    <p><a class="contact-link" href="https://twitter.com/predator_gr8" target="_blank">@predator_gr8</a></p>
+  </div>  <footer>
+    <p>&copy; 2025 pr3dat0r. All rights reserved.</p>
+  </footer>
+</body>
+</html>
