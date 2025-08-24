@@ -1,188 +1,215 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="pr3dat0r | Hacker Blog" />
     <title>pr3dat0r | Hacker Blog</title>
     <style>
-        /* RESET */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
             font-family: 'Courier New', monospace;
-        }
+        }body {
+        background-color: #000;
+        color: #00ff88;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
 
-        body {
-            background-color: #000;
-            color: #00ff88;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+    header {
+        padding: 15px;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: bold;
+        text-shadow: 0 0 10px #00ff88;
+        animation: flicker 2s infinite;
+    }
 
+    nav {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 10px;
+        background-color: #0a0a0a;
+        border-top: 1px solid #00ff88;
+        border-bottom: 1px solid #00ff88;
+    }
+
+    nav a {
+        color: #00ff88;
+        text-decoration: none;
+        font-size: 1rem;
+        position: relative;
+        transition: color 0.3s;
+    }
+
+    nav a:hover {
+        color: #00ffaa;
+    }
+
+    nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        background: #00ff88;
+        left: 0;
+        bottom: -3px;
+        transition: 0.3s;
+    }
+
+    nav a:hover::after {
+        width: 100%;
+    }
+
+    main {
+        flex: 1;
+        padding: 20px;
+        max-width: 1000px;
+        margin: 0 auto;
+    }
+
+    /* Typing effect */
+    .typing {
+        font-size: 1.1rem;
+        border-right: 3px solid #00ff88;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+        animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+    }
+
+    @keyframes typing {
+        from { width: 0; }
+        to { width: 100%; }
+    }
+
+    @keyframes blink {
+        50% { border-color: transparent; }
+    }
+
+    /* Blog Cards */
+    .blog-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+        margin-top: 30px;
+    }
+
+    .card {
+        background: #0a0a0a;
+        border: 1px solid #00ff88;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px #00ff88;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+    }
+
+    .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 0 20px #00ff88;
+    }
+
+    .card h2 {
+        font-size: 1.3rem;
+        margin-bottom: 8px;
+        color: #00ff88;
+    }
+
+    .card p {
+        font-size: 0.95rem;
+        color: #ccc;
+        line-height: 1.5;
+    }
+
+    footer {
+        text-align: center;
+        padding: 15px;
+        font-size: 0.85rem;
+        border-top: 1px solid #00ff88;
+        background: #000;
+    }
+
+    @keyframes flicker {
+        0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
+            opacity: 1;
+        }
+        20%, 24%, 55% {
+            opacity: 0.5;
+        }
+    }
+
+    /* Make site fully responsive */
+    @media screen and (max-width: 600px) {
         header {
-            padding: 20px;
-            text-align: center;
-            font-size: 2rem;
-            font-weight: bold;
-            text-shadow: 0 0 10px #00ff88;
-            animation: flicker 2s infinite;
+            font-size: 1.6rem;
         }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            margin-top: 10px;
-        }
-
-        nav a {
-            color: #00ff88;
-            text-decoration: none;
-            font-size: 1.1rem;
-            position: relative;
-        }
-
-        nav a::after {
-            content: "";
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: #00ff88;
-            left: 0;
-            bottom: -3px;
-            transition: 0.3s;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        main {
-            flex: 1;
-            padding: 30px;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-
-        /* Typing animation */
         .typing {
-            font-size: 1.3rem;
-            border-right: 3px solid #00ff88;
-            white-space: nowrap;
-            overflow: hidden;
-            width: 0;
-            animation: typing 4s steps(40, end) forwards, blink 0.7s infinite;
+            font-size: 1rem;
         }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Blog Cards */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: #0a0a0a;
-            border: 1px solid #00ff88;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px #00ff88;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
-        }
-
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 0 20px #00ff88;
-        }
-
-        .card h2 {
-            font-size: 1.5rem;
-            margin-bottom: 10px;
-            color: #00ff88;
-        }
-
-        .card p {
-            font-size: 0.95rem;
-            color: #ccc;
-        }
-
-        footer {
-            text-align: center;
-            padding: 20px;
+        nav a {
             font-size: 0.9rem;
-            border-top: 1px solid #00ff88;
-            background: #000;
         }
+        .card {
+            padding: 15px;
+        }
+        .card h2 {
+            font-size: 1.1rem;
+        }
+        .card p {
+            font-size: 0.85rem;
+        }
+    }
+</style>
 
-        /* Flicker Animation */
-        @keyframes flicker {
-            0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% {
-                opacity: 1;
-            }
-            20%, 24%, 55% {
-                opacity: 0.5;
-            }
-        }
-    </style>
 </head>
 <body>
-    <header>pr3dat0r // Hacker Blog</header>
+    <header>pr3dat0r // Hacker Blog</header><nav>
+    <a href="#">Home</a>
+    <a href="#blog">Blog</a>
+    <a href="#about">About</a>
+</nav>
 
-    <nav>
-        <a href="#">Home</a>
-        <a href="#blog">Blog</a>
-        <a href="#about">About</a>
-    </nav>
+<main>
+    <div class="typing" id="typing"></div>
 
-    <main>
-        <div class="typing" id="typing"></div>
-
-        <div class="blog-grid">
-            <div class="card">
-                <h2>Welcome to pr3dat0r Blog</h2>
-                <p>First post! Sharing hacking tips, cybersecurity insights, and tools I build.</p>
-            </div>
-            <div class="card">
-                <h2>SSRF Vulnerability Deep Dive</h2>
-                <p>Explaining how SSRF works and why it's dangerous for web apps.</p>
-            </div>
-            <div class="card">
-                <h2>Finding Origin IPs Behind Cloudflare</h2>
-                <p>Step-by-step guide on bypassing CDN protections during pentests.</p>
-            </div>
+    <div class="blog-grid">
+        <div class="card">
+            <h2>Welcome to pr3dat0r Blog</h2>
+            <p>First post! Sharing hacking tips, cybersecurity insights, and tools I build.</p>
         </div>
-    </main>
+        <div class="card">
+            <h2>SSRF Vulnerability Deep Dive</h2>
+            <p>Explaining how SSRF works and why it's dangerous for web apps.</p>
+        </div>
+        <div class="card">
+            <h2>Finding Origin IPs Behind Cloudflare</h2>
+            <p>Step-by-step guide on bypassing CDN protections during pentests.</p>
+        </div>
+    </div>
+</main>
 
-    <footer>© 2025 pr3dat0r | Built for Hackers</footer>
+<footer>© 2025 pr3dat0r | Built for Hackers</footer>
 
-    <script>
-        const typingText = "[+] Initializing pr3dat0r blog... Access granted.";
-        let i = 0;
-        const typingElement = document.getElementById("typing");
+<script>
+    const typingText = "[+] Initializing pr3dat0r blog... Access granted.";
+    let i = 0;
+    const typingElement = document.getElementById("typing");
 
-        function typeEffect() {
-            if (i < typingText.length) {
-                typingElement.textContent += typingText.charAt(i);
-                i++;
-                setTimeout(typeEffect, 50);
-            }
+    function typeEffect() {
+        if (i < typingText.length) {
+            typingElement.textContent += typingText.charAt(i);
+            i++;
+            setTimeout(typeEffect, 50);
         }
+    }
 
-        window.onload = typeEffect;
-    </script>
+    window.onload = typeEffect;
+</script>
+
 </body>
 </html>
